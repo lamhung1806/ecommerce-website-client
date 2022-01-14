@@ -1,5 +1,5 @@
 import axios from "axios";
-import { url } from "../../contain/contain";
+import { sort, url } from "../../contain/contain";
 
 export const getProduct = (data) => ({
   type: "GET_PRODUCT",
@@ -15,6 +15,14 @@ export const searchProductAction = (data) => ({
 });
 export const getProducByCategoty = (data) => ({
   type: "GET_PRODUCT",
+  payload: data,
+});
+export const sortProduct = (data) => ({
+  type: "SORT_PRODUCT",
+  payload: data,
+});
+export const sortProductSmall = (data) => ({
+  type: "SORT_PRODUCT_SMALL",
   payload: data,
 });
 

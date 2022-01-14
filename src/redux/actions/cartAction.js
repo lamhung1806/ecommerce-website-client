@@ -1,12 +1,13 @@
 import axios from "axios";
 import { token, url } from "../../contain/contain";
+import { notifyErrorCart, notifySuccessCart } from "../../contain/msg";
 export const getCart = (data) => {
   return {
     type: "GET_CART",
     payload: data,
   };
 };
-export const createdCart = (data) => {
+export const createdCartAction = (data) => {
   return {
     type: "CREATE_CART",
     payload: data,
@@ -18,6 +19,7 @@ export const deleteCartAction = (data) => {
     payload: data,
   };
 };
+
 export const getDataCart = (data) => (dispatch) => {
   const userId = JSON.parse(localStorage.getItem("user"));
   if (userId) {
@@ -40,13 +42,13 @@ export const createCart = (data) => (dispatch) => {
       .post(`${url}Carts/Create`, data, {
         headers: { Authorization: `Bearer ${token}` },
       })
-      .then((response) => {
-        console.log(response.data);
-        dispatch(createdCart());
+      .then(() => {
+        dispatch(createdCartAction());
         dispatch(getDataCart());
+        notifySuccessCart();
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        notifyErrorCart();
       });
   }
 };

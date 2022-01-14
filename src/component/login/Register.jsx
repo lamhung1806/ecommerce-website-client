@@ -8,6 +8,8 @@ import isEmpty from 'validator/lib/isEmpty'
 import isEmail from 'validator/lib/isEmail'
 import { ToastContainer, toast } from 'react-toastify';
 import './style.css';
+import axios from 'axios';
+import { notifyError, notifySuccessTop } from '../../contain/msg';
 
 
 function Register() {
@@ -60,30 +62,32 @@ function Register() {
      
 
   }
-  const notify=()=>{
-    toast.success('🦄 Đăng kí thành công!', {
-        position: "top-center",
-        autoClose: 1000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
-  }
+  
 
   const handleRegister=()=>{
 
     const validate= validateAll()
     if(validate) return
-      notify()
       const newData={
         email: dataRegister.email,
         username: dataRegister.userName,
         password:dataRegister.password,
       }
-      dispatch(createUser(newData));
-      history.push('/');
+      
+        axios
+          .post("https://localhost:44305/api/Accounts/Register", newData)
+          .then(() => {
+            notifySuccessTop();
+            setTimeout(()=>{
+
+              history.push('/');
+            }, 1000)
+          })
+          .catch(() => {
+            notifyError();
+          });
+      
+     
   };
   
 

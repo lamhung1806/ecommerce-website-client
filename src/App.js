@@ -9,6 +9,7 @@ import { getProducts } from "./redux/actions/productAction";
 import { setDataUser } from "./redux/actions/loginAction";
 import { getDataCart } from "./redux/actions/cartAction";
 import { getCategory } from "./redux/actions/categoryAction";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +21,18 @@ function App() {
   }, []);
   return (
     <Router>
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        size={false}
+      />
       <Header />
       <Routerr />
       <Footer />

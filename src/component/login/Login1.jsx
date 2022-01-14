@@ -9,19 +9,11 @@ import axios from 'axios';
 import{setDataUser} from '../../redux/actions/loginAction'
 import { ToastContainer, toast } from 'react-toastify';
 import { useRef } from 'react';
+import { notifyErrorLogin, notifySuccess } from '../../contain/msg';
 
 
 function Sigin() {
     const passElement = useRef();
-    const notify = () => toast.warn('Sai tài khoản hoặc mật khẩu', {
-        position: "top-center",
-        autoClose: 2000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
     const dispatch =useDispatch();
         let history=useHistory()
         const [dataLogin,setDataLogin]=useState({
@@ -62,15 +54,18 @@ function Sigin() {
         localStorage.setItem("token", response.data);
       
         dispatch(setDataUser());
-      
-            history.push('/');
+            notifySuccess()
+            setTimeout(() => {
+                history.push('/')
             window.location.reload();
+            }, 1000);
+            
         })
        
         
   
-      .catch((err) => {
-        notify()
+      .catch(() => {
+        notifyErrorLogin()
       });
   };
  const handleLogin=  (e)=>{

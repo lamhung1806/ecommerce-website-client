@@ -21,6 +21,7 @@
     list-style: none;
     padding-left: 0;
     margin-top: 10px 0 0 0;
+    display:flex
 }
 .header__navbar-item {
     padding: 0 8px;
@@ -48,9 +49,7 @@
 .header__navbar-item:hover {
     color: rgba(255, 255, 255, 0.5);
 }
-.Login {
-    margin-top: 2px;
-}
+
 
 #check_login:checked ~ .modal {
     display: flex;

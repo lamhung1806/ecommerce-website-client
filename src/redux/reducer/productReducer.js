@@ -1,3 +1,5 @@
+import { sort, sortSmall } from "../../contain/contain";
+
 const productInitialState = {
   dataProduct: [],
 };
@@ -19,6 +21,18 @@ const product = (state = productInitialState, action) => {
       return {
         ...state,
         dataProduct: action.payload,
+      };
+    }
+    case "SORT_PRODUCT": {
+      return {
+        ...state,
+        dataProduct: sort(action.payload).slice(0, action.payload.length),
+      };
+    }
+    case "SORT_PRODUCT_SMALL": {
+      return {
+        ...state,
+        dataProduct: sortSmall(action.payload).slice(0, action.payload.length),
       };
     }
     default:

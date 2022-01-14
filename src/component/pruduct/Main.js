@@ -1,7 +1,11 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Item from "./Item";
-import { ProductbyCategory } from "../../redux/actions/productAction";
+import {
+  ProductbyCategory,
+  sortProduct,
+  sortProductSmall,
+} from "../../redux/actions/productAction";
 
 function Main() {
   const dispatch = useDispatch();
@@ -10,6 +14,12 @@ function Main() {
   const viewByCategory = (e, data) => {
     e.preventDefault();
     dispatch(ProductbyCategory(data));
+  };
+  const handleSort = () => {
+    dispatch(sortProduct(dataProduct));
+  };
+  const handleSortSmall = () => {
+    dispatch(sortProductSmall(dataProduct));
   };
 
   return (
@@ -44,8 +54,12 @@ function Main() {
                 <span className="select-input__lable">Giá:</span>
                 <i className="select-input-icon fas fa-sort-down " />
                 <ul className="select-input__list">
-                  <li className="select-input__item">Giá: Từ cao đến thấp </li>
-                  <li className="select-input__item">Giá: Từ thấp đến cao</li>
+                  <li onClick={handleSort} className="select-input__item">
+                    Giá: Từ cao đến thấp{" "}
+                  </li>
+                  <li onClick={handleSortSmall} className="select-input__item">
+                    Giá: Từ thấp đến cao
+                  </li>
                 </ul>
               </div>
               <div className="home-filter__page">

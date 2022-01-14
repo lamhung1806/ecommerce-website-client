@@ -8,3 +8,31 @@ export const viewToken = {
 };
 
 export const url = "https://localhost:44305/api/";
+
+export const sort = (data) => {
+  let a = data;
+  for (let i = 0; i < a.length - 1; i++) {
+    for (let j = i + 1; j < a.length; j++) {
+      if (a[i].price < a[j].price) {
+        let tg = a[i];
+        a[i] = a[j];
+        a[j] = tg;
+      }
+    }
+  }
+  return a;
+};
+
+export const sortSmall = (data) => {
+  let a = data;
+  for (let i = 0; i < a.length - 1; i++) {
+    for (let j = i + 1; j < a.length; j++) {
+      if (a[i].price > a[j].price) {
+        let tg = a[i];
+        a[i] = a[j];
+        a[j] = tg;
+      }
+    }
+  }
+  return a;
+};

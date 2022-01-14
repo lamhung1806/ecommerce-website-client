@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import {createCart} from '../../redux/actions/cartAction';
 
@@ -16,15 +16,7 @@ const dispatch=useDispatch()
  const [quantity,setQuantity]=useState(1)
  const url='https://localhost:44305/api/Products/GetById/'
  const user= useSelector(state=>state.login.dataUser)
- const notify = () => toast.success('Success', {
-    position: "top-right",
-    autoClose: 1000,
-    hideProgressBar: false,
-    closeOnClick: true,
-    pauseOnHover: true,
-    draggable: true,
-    progress: undefined,
-    });
+
  useEffect(() => {
      fetch(url+id)
      .then(response=>response.json())
@@ -44,15 +36,20 @@ quantity>1 ? setQuantity(quantity-1) : setQuantity(quantity-0)
 }
   
 const addCart=()=>{
+    
+        const newData={ 
+            userId:user.id,
+            productId:data.id,
+            quantity:quantity
+      
+      
+        }
+      dispatch(createCart(newData))
+   
+    
   
-  const newData={ 
-      userId:user.id,
-      productId:data.id,
-      quantity:quantity
-
-
-  }
-dispatch(createCart(newData))
+  
+ 
  
 
   

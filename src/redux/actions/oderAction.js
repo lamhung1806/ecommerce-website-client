@@ -1,6 +1,7 @@
 import axios from "axios";
 import { url } from "../../contain/contain";
 import { token } from "../../contain/contain";
+import { notifyError, notifySuccess } from "../../contain/msg";
 
 export const createOderAction = (data) => {
   return {
@@ -14,10 +15,10 @@ export const createOder = (data) => (dispatch) => {
     .post(`${url}Orders/Create`, data, {
       headers: { Authorization: `Bearer ${token}` },
     })
-    .then((response) => {
-      console.log(response.data);
+    .then(() => {
+      notifySuccess();
     })
     .catch((error) => {
-      console.log(error);
+      notifyError();
     });
 };

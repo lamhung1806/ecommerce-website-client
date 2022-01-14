@@ -1,7 +1,26 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { user } from "../../contain/contain";
+import { createCart } from "../../redux/actions/cartAction";
 
 function Item({ data }) {
+  let history = useHistory();
+  const dispatch = useDispatch();
+
+  const handleAddCart = (e) => {
+    e.preventDefault();
+    if (user) {
+      const newData = {
+        userId: user.id,
+        productId: data.id,
+        quantity: 1,
+      };
+      dispatch(createCart(newData));
+    } else {
+      history.push("/login");
+    }
+  };
   return (
     <div className="col l-2-4 m-4 c-6">
       <Link to={`product/${data.id}`} className="home-product-item">
@@ -24,7 +43,7 @@ function Item({ data }) {
             <i className="far fa-heart home-product-item__like-no-like" />
           </span>
           <div className="home-product-item__rateting">
-            <i className="fas fa-cart-plus"></i>
+            <i onClick={handleAddCart} className="fas fa-cart-plus"></i>
             {/* <i className="home-product-item__star-gold fas fa-star" />
                     <i className="home-product-item__star-gold fas fa-star" />
                     <i className="home-product-item__star-gold fas fa-star" />
