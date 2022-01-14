@@ -1,0 +1,53 @@
+.profile{ 
+    position: relative;
+}
+.profile:hover .profile_select {
+    display: block;
+}
+.profile_select{
+    position: absolute;
+    left: 0;
+    top: 20px;
+    width: 200px;
+    background-color:#fff;
+    color: #333;
+    z-index: 2;
+    font-size: 18px;
+    border-radius: 2px;
+    display:none;
+    animation: profile ease-in 0.2s;
+    transform-origin: top left;
+}
+.profile::before {
+    content: "";
+    width: 100px;
+    height: 10px;
+    background-color:transparent;
+    position: absolute;
+    top: 10px;
+}
+.profile_select_list {
+    
+    list-style: none;
+    padding:0 0 0 16px;
+}
+.profile_select_item {
+    
+  margin:16px 0 16px 0 ;
+  font-weight: 400 ;
+}
+.profile_select_item:hover {
+    color: rgb(23, 139, 143)
+}
+
+@keyframes profile {
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+
+    }
+}

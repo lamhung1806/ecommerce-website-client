@@ -1,0 +1,88 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\Html_Css"
+		},
+		{
+			"path": "..\\..\\..\\..\\Trainning"
+		},
+		{
+			"path": "..\\..\\..\\..\\responsive"
+		},
+		{
+			"path": "..\\..\\..\\..\\flex-box"
+		},
+		{
+			"path": "..\\..\\..\\..\\web shoppe"
+		},
+		{
+			"path": "..\\..\\..\\..\\Cat_pts"
+		},
+		{
+			"path": "..\\..\\..\\..\\reponsive2"
+		},
+		{
+			"path": "..\\..\\..\\..\\js"
+		},
+		{
+			"path": "..\\..\\..\\..\\Tab UI"
+		},
+		{
+			"path": "..\\..\\..\\..\\music"
+		},
+		{
+			"path": "..\\..\\..\\..\\form valication"
+		},
+		{
+			"path": "..\\..\\..\\..\\web-Film"
+		},
+		{
+			"path": "..\\..\\..\\..\\blog-html-css"
+		},
+		{
+			"path": "..\\..\\..\\..\\pv"
+		},
+		{
+			"path": "..\\..\\..\\..\\React"
+		},
+		{
+			"path": "..\\..\\..\\..\\Test"
+		},
+		{
+			"path": "..\\..\\..\\..\\react_LifeCycle"
+		},
+		{
+			"path": "..\\..\\..\\react_routing"
+		},
+		{
+			"path": "..\\..\\..\\quan_ly_user"
+		},
+		{
+			"path": "..\\..\\..\\react_Redux"
+		},
+		{
+			"path": "..\\..\\..\\..\\sider1"
+		},
+		{
+			"path": "..\\..\\..\\..\\web-Film - Copy"
+		},
+		{
+			"path": "..\\..\\..\\quanlinote"
+		},
+		{
+			"path": "..\\..\\..\\..\\JSON_sever"
+		},
+		{
+			"path": "..\\..\\..\\..\\firebase"
+		},
+		{
+			"path": "..\\..\\..\\react_Hook"
+		},
+		{
+			"path": "..\\..\\..\\react_reduxNew"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "web shoppe"
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\..\\Học web\\ecommerce"
+		},
+		{
+			"path": "..\\..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\shoppe hook"
+		},
+		{
+			"path": "..\\..\\..\\..\\Học web\\confirn"
+		},
+		{
+			"path": "..\\..\\..\\..\\Reacjs F8"
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\Downloads\\react-alert-master"
+		},
+		{
+			"path": "..\\..\\..\\..\\corona-free-dark-bootstrap-admin-template-1.0.0"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "corona-free-dark-bootstrap-admin-template-1.0.0"
+	}
+}
