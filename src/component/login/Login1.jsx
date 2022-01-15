@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import {Link, useHistory} from 'react-router-dom'
 import isEmpty from 'validator/lib/isEmpty'
 import isEmail from 'validator/lib/isEmail'
-import './style.css'
 import axios from 'axios';
 import{setDataUser} from '../../redux/actions/loginAction'
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import { useRef } from 'react';
 import { notifyErrorLogin, notifySuccess } from '../../contain/msg';
+import './style.css'
+import { token, url, user } from '../../contain/contain';
 
 
 function Sigin() {
@@ -48,7 +49,7 @@ function Sigin() {
  
  const getToken = (dataLogin) => (dispatch) => {
     axios
-      .post("https://localhost:44305/api/Accounts/Login", dataLogin)
+      .post(`${url}Accounts/Login`, dataLogin)
   
       .then((response) => {
         localStorage.setItem("token", response.data);
@@ -74,6 +75,8 @@ function Sigin() {
     if(validate) return;
 
     dispatch(getToken(dataLogin));
+    token()
+    user()
  }
  
  const handleKeyDownEmail=(e)=>{

@@ -1,20 +1,18 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/jsx-no-duplicate-props */
 import React,{useState} from 'react';
-import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { createUser } from '../../redux/actions/RegisterAction';
 import isEmpty from 'validator/lib/isEmpty'
 import isEmail from 'validator/lib/isEmail'
-import { ToastContainer, toast } from 'react-toastify';
-import './style.css';
+import { ToastContainer } from 'react-toastify';
 import axios from 'axios';
 import { notifyError, notifySuccessTop } from '../../contain/msg';
+import {url} from '../../contain/contain'
+import './style.css';
 
 
 function Register() {
       
-  const dispatch = useDispatch();
     let history = useHistory();
   const [dataRegister,setDataRegister]=useState({
     email: '',
@@ -75,7 +73,7 @@ function Register() {
       }
       
         axios
-          .post("https://localhost:44305/api/Accounts/Register", newData)
+          .post(`${url}Accounts/Register`, newData)
           .then(() => {
             notifySuccessTop();
             setTimeout(()=>{

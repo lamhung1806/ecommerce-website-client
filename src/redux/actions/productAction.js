@@ -1,5 +1,5 @@
 import axios from "axios";
-import { sort, url } from "../../contain/contain";
+import { url } from "../../contain/contain";
 
 export const getProduct = (data) => ({
   type: "GET_PRODUCT",
@@ -27,7 +27,6 @@ export const sortProductSmall = (data) => ({
 });
 
 export const getProducts = () => (dispatch) => {
-  // axios.defaults.headers.common["Authorization"] = axios;
   axios
     .get("https://localhost:44305/api/Products/GetAll", {})
     .then((response) => {

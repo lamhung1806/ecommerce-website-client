@@ -1,6 +1,4 @@
-import axios from "axios";
 import { token, viewToken } from "../../contain/contain";
-import { getCart } from "./cartAction";
 
 export const checkLogin = (data) => {
   return {
@@ -14,23 +12,9 @@ export const getDataUser = (data) => {
     payload: data,
   };
 };
-// export const getToken = (data) => (dispatch) => {
-//   axios
-//     .post("https://localhost:44305/api/Accounts/Login", data)
-
-//     .then((response) => {
-//       dispatch(checkLogin());
-//       localStorage.setItem("token", response.data);
-//       window.alert("Đăng nhập thành công");
-//       dispatch(setDataUser());
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//     });
-// };
 export const setDataUser = (data) => (dispatch) => {
   let dataUser = {};
-  if (token) {
+  if (token()) {
     const decoded = JSON.parse(
       window.atob(localStorage.getItem("token").split(".")[1])
     );

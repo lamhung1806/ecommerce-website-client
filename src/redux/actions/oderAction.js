@@ -13,7 +13,7 @@ export const createOderAction = (data) => {
 export const createOder = (data) => (dispatch) => {
   axios
     .post(`${url}Orders/Create`, data, {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${token()}` },
     })
     .then(() => {
       notifySuccess();

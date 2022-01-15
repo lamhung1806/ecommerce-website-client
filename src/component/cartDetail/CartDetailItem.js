@@ -2,12 +2,26 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteCart } from "../../redux/actions/cartAction";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 function Cart_Description_item({ listCart }) {
   const [quantity, setQuantity] = useState(listCart.quantity);
   const disPatch = useDispatch();
   const deleteProduct = () => {
-    disPatch(deleteCart(listCart.id));
+    confirmAlert({
+      title: "Xác nhận ",
+      message: "Bạn chắc chắn xóa sản phẩm",
+      buttons: [
+        {
+          label: "Xác Nhận",
+          onClick: () => disPatch(deleteCart(listCart.id)),
+        },
+        {
+          label: "Hủy",
+        },
+      ],
+    });
   };
   const updateDown = () => {
     quantity > 1 ? setQuantity(quantity - 1) : setQuantity(quantity - 0);

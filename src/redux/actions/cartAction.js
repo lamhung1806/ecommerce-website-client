@@ -1,6 +1,11 @@
 import axios from "axios";
 import { token, url } from "../../contain/contain";
-import { notifyErrorCart, notifySuccessCart } from "../../contain/msg";
+import {
+  notifyError,
+  notifyErrorCart,
+  notifySuccess,
+  notifySuccessCart,
+} from "../../contain/msg";
 export const getCart = (data) => {
   return {
     type: "GET_CART",
@@ -20,12 +25,12 @@ export const deleteCartAction = (data) => {
   };
 };
 
-export const getDataCart = (data) => (dispatch) => {
+export const getDataCart = () => (dispatch) => {
   const userId = JSON.parse(localStorage.getItem("user"));
   if (userId) {
     axios
       .get(`https://localhost:44305/api/Carts/GetCart/${userId.id}`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token()}` },
       })
       .then((response) => {
         dispatch(getCart(response.data));
@@ -40,7 +45,7 @@ export const createCart = (data) => (dispatch) => {
   if (data) {
     axios
       .post(`${url}Carts/Create`, data, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token()}` },
       })
       .then(() => {
         dispatch(createdCartAction());
@@ -58,15 +63,15 @@ export const deleteCart = (id) => (dispatch) => {
   if (userId) {
     axios
       .delete(`${url}Carts/Delete/${userId.id}/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
+        headers: { Authorization: `Bearer ${token()}` },
       })
-      .then((response) => {
-        console.log(response.data);
+      .then(() => {
         dispatch(deleteCartAction());
         dispatch(getDataCart());
+        notifySuccess();
       })
-      .catch((error) => {
-        console.log(error);
+      .catch(() => {
+        notifyError();
       });
   }
 };

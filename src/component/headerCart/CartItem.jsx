@@ -2,6 +2,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { deleteCart } from '../../redux/actions/cartAction';
+import { confirmAlert } from 'react-confirm-alert'; 
+import 'react-confirm-alert/src/react-confirm-alert.css'; 
 
 
 
@@ -10,7 +12,21 @@ function CartItem({datalistCart}) {
     const dispatch =useDispatch();
     const handleDelete=(e)=>{
         e.preventDefault();
-     dispatch(deleteCart(datalistCart.id))
+        confirmAlert({
+            title: 'Xác nhận ',
+            message: 'Bạn chắc chắn xóa sản phẩm',
+            buttons: [
+              {
+                label: 'Xác Nhận',
+                onClick: () =>   dispatch(deleteCart(datalistCart.id))
+              },
+              {
+                label: 'Hủy',
+                
+              }
+            ]
+          });
+   
     }
     return (
         <li className="header-list-item">

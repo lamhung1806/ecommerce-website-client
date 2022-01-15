@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { token } from '../../contain/contain';
 import {createCart} from '../../redux/actions/cartAction';
 
 
@@ -16,6 +17,7 @@ const dispatch=useDispatch()
  const [quantity,setQuantity]=useState(1)
  const url='https://localhost:44305/api/Products/GetById/'
  const user= useSelector(state=>state.login.dataUser)
+ let history =useHistory()
 
  useEffect(() => {
      fetch(url+id)
@@ -36,7 +38,9 @@ quantity>1 ? setQuantity(quantity-1) : setQuantity(quantity-0)
 }
   
 const addCart=()=>{
-    
+
+    if(token()){
+
         const newData={ 
             userId:user.id,
             productId:data.id,
@@ -45,6 +49,11 @@ const addCart=()=>{
       
         }
       dispatch(createCart(newData))
+    }
+    else{
+        history.push('/login')
+    }
+    
    
     
   

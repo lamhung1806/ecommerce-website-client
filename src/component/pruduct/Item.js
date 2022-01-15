@@ -1,7 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { user } from "../../contain/contain";
 import { createCart } from "../../redux/actions/cartAction";
 
 function Item({ data }) {
@@ -10,6 +9,7 @@ function Item({ data }) {
 
   const handleAddCart = (e) => {
     e.preventDefault();
+    const user = JSON.parse(localStorage.getItem("user"));
     if (user) {
       const newData = {
         userId: user.id,
