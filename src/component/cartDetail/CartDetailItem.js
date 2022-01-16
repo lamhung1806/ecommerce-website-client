@@ -1,11 +1,13 @@
 /* eslint-disable jsx-a11y/alt-text */
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { deleteCart } from "../../redux/actions/cartAction";
+import { deleteCart, updateCart } from "../../redux/actions/cartAction";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
+import { user } from "../../contain/contain";
 
 function Cart_Description_item({ listCart }) {
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(listCart.quantity);
   const disPatch = useDispatch();
   const deleteProduct = () => {
@@ -23,11 +25,30 @@ function Cart_Description_item({ listCart }) {
       ],
     });
   };
+
   const updateDown = () => {
     quantity > 1 ? setQuantity(quantity - 1) : setQuantity(quantity - 0);
+    if (quantity > 1) {
+      dispatch(
+        updateCart({
+          userId: user().id,
+          productId: listCart.id,
+          quantity: quantity - 1,
+        })
+      );
+    } else {
+      deleteProduct();
+    }
   };
   const updateUp = () => {
     setQuantity(quantity + 1);
+    dispatch(
+      updateCart({
+        userId: user().id,
+        productId: listCart.id,
+        quantity: quantity + 1,
+      })
+    );
   };
 
   return (

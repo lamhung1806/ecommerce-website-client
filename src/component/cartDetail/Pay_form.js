@@ -4,6 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { user } from "../../contain/contain";
 import { createOder } from "../../redux/actions/oderAction";
 import { changeStatus } from "../../redux/actions/statusFormPayAction";
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 function Pay_form(props) {
   const dispatch = useDispatch();
@@ -18,8 +20,22 @@ function Pay_form(props) {
   });
   const handleBuy = (e) => {
     e.preventDefault();
-    dispatch(createOder(data));
-    dispatch(changeStatus());
+    confirmAlert({
+      title: "Xác nhận ",
+      message: "Bạn chắc chắn muốn mua sản phẩm",
+      buttons: [
+        {
+          label: "Xác Nhận",
+          onClick: () => {
+            dispatch(createOder(data));
+            dispatch(changeStatus());
+          },
+        },
+        {
+          label: "Hủy",
+        },
+      ],
+    });
   };
   return (
     <form className="pay">

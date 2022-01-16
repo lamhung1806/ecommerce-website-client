@@ -34,7 +34,6 @@ export const getProducts = () => (dispatch) => {
     });
 };
 export const ProductbyCategory = (data) => (dispatch) => {
-  // axios.defaults.headers.common["Authorization"] = axios;
   axios
     .get(`https://localhost:44305/api/Products/SearchByCategory/${data}`, {})
     .then((response) => {
@@ -42,7 +41,6 @@ export const ProductbyCategory = (data) => (dispatch) => {
     });
 };
 export const searchProduct = (data) => (dispatch) => {
-  // axios.defaults.headers.common["Authorization"] = axios;
   axios
     .get(`${url}Products/SearchByName/${data}`, null)
     .then((response) => {

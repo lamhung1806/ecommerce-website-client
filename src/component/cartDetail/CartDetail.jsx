@@ -7,14 +7,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import Pay_form from './Pay_form';
 import { changeStatus } from '../../redux/actions/statusFormPayAction';
 import { getDataCart } from '../../redux/actions/cartAction';
+import { user } from '../../contain/contain';
 function Cart_Description() {
     const dispatch = useDispatch()
     const statusPayForm= useSelector(state=> state.statusFormReducer.status)
     const listCart =useSelector(state=> state.cart.cartData)
 useEffect(() =>{
-    if (localStorage.getItem("user")) {
-        dispatch(getDataCart(JSON.parse(localStorage.getItem("user"))));
+    if (user()) {
+        dispatch(getDataCart(user()))
       }
+      sum()
 },[])
     const handleBuy =()=>{
         dispatch(changeStatus())

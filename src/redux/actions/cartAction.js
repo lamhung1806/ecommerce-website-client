@@ -24,6 +24,12 @@ export const deleteCartAction = (data) => {
     payload: data,
   };
 };
+export const updateCartAction = (data) => {
+  return {
+    type: "UPDATE_CART",
+    payload: data,
+  };
+};
 
 export const getDataCart = () => (dispatch) => {
   const userId = JSON.parse(localStorage.getItem("user"));
@@ -72,6 +78,22 @@ export const deleteCart = (id) => (dispatch) => {
       })
       .catch(() => {
         notifyError();
+      });
+  }
+};
+export const updateCart = (data) => (dispatch) => {
+  const userId = JSON.parse(localStorage.getItem("user"));
+  if (userId) {
+    axios
+      .put(`${url}Carts/Update`, data, {
+        headers: { Authorization: `Bearer ${token()}` },
+      })
+      .then(() => {
+        dispatch(updateCartAction());
+        dispatch(getDataCart());
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 };
