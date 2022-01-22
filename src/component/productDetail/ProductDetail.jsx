@@ -105,9 +105,9 @@ const addCart=()=>{
                                         </div>
                                         <div className="product-color-wap">
                                             <div className="row">
-                                                <div className="product-color col l-2">Gold</div>
-                                                <div className="product-color col l-2">white</div>
-                                                <div className="product-color col l-2">red</div>
+                                                <div className="product-color col l-2">{data.color}</div>
+                                                {/* <div className="product-color col l-2">white</div>
+                                                <div className="product-color col l-2">red</div> */}
                                             </div>
                                         </div>
                                         <div className="product-quantity">

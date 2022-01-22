@@ -35,9 +35,7 @@ export default function SimpleSlider() {
                             <div>
                                 <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/HS_AW_S6-03.png"></img>
                             </div>
-                            <div>
-                                <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/fold-3-rr-690-300-max_1a.png"></img>
-                            </div>
+                            
                             <div>
                                 <img src="https://cdn.cellphones.com.vn/media/ltsoft/promotion/magic-6s-690x300_3_.jpg"></img>
                             </div>

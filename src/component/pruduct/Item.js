@@ -33,9 +33,11 @@ function Item({ data }) {
         <h4 className="home-product-item__name">{data.name}</h4>
         <div className="home-product-item__price">
           <div className="home-product-item__price-old">
-            {data.promotionPrice} VND
+            {data.promotionPrice.toLocaleString()} VND
           </div>
-          <div className="home-product-item__price-curen">{data.price} VND</div>
+          <div className="home-product-item__price-curen">
+            {data.price.toLocaleString()} VND
+          </div>
         </div>
         <div className="home-product-item__action">
           <span className="home-product-item__like home-product-item__like-liker">

@@ -60,7 +60,10 @@ function Cart_Description_item({ listCart }) {
         />
         <div className="name_product">{listCart.name} </div>
       </td>
-      <td className="Cart_description_value"> {listCart.price} </td>
+      <td className="Cart_description_value">
+        {" "}
+        {listCart.price.toLocaleString()}
+      </td>
       <td className="Cart_description_value">
         <div className="product">
           <div className="quantity ">
@@ -75,7 +78,9 @@ function Cart_Description_item({ listCart }) {
           </div>
         </div>
       </td>
-      <td className="Cart_description_value">{listCart.price * quantity}</td>
+      <td className="Cart_description_value">
+        {(listCart.price * quantity).toLocaleString()} VND
+      </td>
       <td
         onClick={deleteProduct}
         className="Cart_description_value Cart_description_value-delete"

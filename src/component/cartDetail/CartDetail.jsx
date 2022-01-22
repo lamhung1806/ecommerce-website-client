@@ -59,7 +59,7 @@ const sum=()=>{
                     <div className="row">
                         <div className="pay_sum">
                             <h2>Tổng số tiền phải thanh toán:</h2>
-                            <h2 className="pay_sum-price">{sum()} đ</h2>
+                            <h2 className="pay_sum-price">{sum().toLocaleString()} VND</h2>
                         </div>
                         {!statusPayForm &&  <button onClick={handleBuy} style={{marginLeft: '20px'}} className="btn btn-prymari btn-pay"> Mua hàng </button>}
 
