@@ -2,15 +2,23 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Item from "./Item";
 import {
+  getProducts,
   ProductbyCategory,
   sortProduct,
   sortProductSmall,
 } from "../../redux/actions/productAction";
+import { getCategory } from "../../redux/actions/categoryAction";
+import { useEffect } from "react";
 
 function Main() {
   const dispatch = useDispatch();
   const dataProduct = useSelector((state) => state.product.dataProduct);
   const listCateGory = useSelector((state) => state.category.dataCategory);
+  useEffect(() => {
+    dispatch(getProducts());
+    dispatch(getCategory());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const viewByCategory = (e, data) => {
     e.preventDefault();
     dispatch(ProductbyCategory(data));

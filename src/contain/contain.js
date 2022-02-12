@@ -42,3 +42,24 @@ export const sortSmall = (data) => {
   }
   return a;
 };
+
+export const oderstatus = (data) => {
+  switch (data) {
+    case false:
+      return {
+        msg: "Đang xác nhận",
+      };
+
+    case true:
+      return {
+        msg: "Đã xác nhận ",
+      };
+    case null:
+      return {
+        msg: "Đã hủy",
+      };
+
+    default:
+      break;
+  }
+};

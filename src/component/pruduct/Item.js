@@ -32,9 +32,9 @@ function Item({ data }) {
         />
         <h4 className="home-product-item__name">{data.name}</h4>
         <div className="home-product-item__price">
-          <div className="home-product-item__price-old">
-            {data.promotionPrice.toLocaleString()} VND
-          </div>
+          {/* <div className="home-product-item__price-old">
+            { (data.price *(data.promotionPrice /100)) .toLocaleString()} VND
+          </div> */}
           <div className="home-product-item__price-curen">
             {data.price.toLocaleString()} VND
           </div>
@@ -62,10 +62,12 @@ function Item({ data }) {
           <i className="fas fa-check" />
           <span> Yêu thích</span>
         </div>
-        {/* <div className="home-product-item__Sale">
-                <span className="home-product-item__sale-persent">{this.props.value}</span>
-                <span className="home-product-item__sale-lable">Giảm</span>
-            </div> */}
+        <div className="home-product-item__Sale">
+          <span className="home-product-item__sale-persent"> Giảm</span>
+          <span className="home-product-item__sale-lable">
+            {data.promotionPrice}%
+          </span>
+        </div>
       </Link>
     </div>
   );

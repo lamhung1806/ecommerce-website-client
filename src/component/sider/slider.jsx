@@ -47,11 +47,15 @@ export default function SimpleSlider() {
                     </div>
                     <div className="col l-4 c-0">
                         <div className='slider_right'>
-                            <iframe src="https://www.youtube.com/embed/IwcPk6V8VHI" height="180px"></iframe>
+                           <div  className='slider_right_top'  ></div>
                         </div>
                         <div className='slider_right'>
-                            <iframe src="https://www.youtube.com/embed/50cv1ND5GXM" height="180px"></iframe>
+                           <div className='slider_right_centra'  ></div>
                         </div>
+                        <div className='slider_right'>
+                           <div className='slider_right_bottom'  ></div>
+                        </div>
+                       
                     </div>
 
                 </div>

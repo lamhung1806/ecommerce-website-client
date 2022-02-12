@@ -53,14 +53,6 @@ const addCart=()=>{
     else{
         history.push('/login')
     }
-    
-   
-    
-  
-  
- 
- 
-
   
 }
 
@@ -83,7 +75,7 @@ const addCart=()=>{
 
              
 
-                            <div style={{ marginTop: '200px' }} className="product">
+                            <div  className="product product_details">
                                 <div className="row">
                                     <div className=" col l-6">
                                         <div className="product-img">

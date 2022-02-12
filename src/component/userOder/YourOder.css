@@ -1,0 +1,48 @@
+.oder_manager {
+    margin-top:160px;
+    height: 60vh;
+  
+   
+} 
+.product_details {
+    margin-top:140px;
+}
+.oder_table {
+    background:rgb(238, 236, 236);
+    margin: auto;
+    border-radius:4px;
+    width: 100%;
+}
+.table_head_list{
+    height: 60px;
+ 
+ 
+}
+
+
+.table_body_item {
+    text-align: center;
+    }
+
+.cancel_oder {
+    background: #C1392B;
+    color:#fff;
+    border-radius: 6px;
+}
+.oder_img_product {
+    width: 100px;
+}
+.total_price {
+    font-size: 2rem;
+   
+    font-weight: bold;
+    color: #C1392B;
+    line-height:36px;
+
+}
+.wrap_total_price {
+    margin-top: 40px;
+    display:flex;
+    align-content: center;
+    justify-content:space-around;
+}

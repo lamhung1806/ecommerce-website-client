@@ -49,3 +49,30 @@
     display: flex;
     flex-direction: column;
 }
+.slider_right_top {
+    background-image:url(../../img/img/imgslider1.webp);
+    width: 100%;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+   
+}
+.slider_right_centra {
+    background-image:url(../../img/img/imgslider2.webp);
+    width: 100%;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+
+.slider_right_bottom {
+    background-image:url(../../img/img/imgslider3.webp);
+    width: 100%;
+    height: 120px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+

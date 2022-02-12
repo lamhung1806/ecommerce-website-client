@@ -1,21 +1,20 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { user } from "../../contain/contain";
 import { createOder } from "../../redux/actions/oderAction";
 import { changeStatus } from "../../redux/actions/statusFormPayAction";
 import { confirmAlert } from "react-confirm-alert";
 import "react-confirm-alert/src/react-confirm-alert.css";
 
-function Pay_form(props) {
+function Pay_form() {
   const dispatch = useDispatch();
   const listCart = useSelector((state) => state.cart.cartData);
   const [data, setData] = useState({
     nameUser: "",
     phone: "",
     address: "",
+    userId: JSON.parse(localStorage.getItem("user")).id,
     status: false,
-    useId: user.id,
     products: listCart,
   });
   const handleBuy = (e) => {

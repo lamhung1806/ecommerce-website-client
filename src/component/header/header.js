@@ -154,12 +154,15 @@ function Header() {
                 {dataUser.userName}
                 <div className="profile_select">
                   <ul className="profile_select_list">
-                    <li className="profile_select_item">Tài KHOẢN CỦA TÔI</li>
+                    <li className="profile_select_item">Tài khoản </li>
+                    <Link to="/youroder" className="profile_select_yourOder">
+                      <li className="profile_select_item">Đơn hàng của bạn </li>
+                    </Link>
                     <li
                       onClick={(e) => handleLogOut(e)}
                       className="profile_select_item"
                     >
-                      ĐĂNG XUẤT
+                      Đăng xuất
                     </li>
                   </ul>
                 </div>

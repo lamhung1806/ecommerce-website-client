@@ -5,7 +5,7 @@
 .header {
     height: var(--header-height);
     background: linear-gradient(0, #fe6433, #f53e2d);
-    background-image: url(https://tienquan0411.github.io/dathangquangchau/assets/img/bg-header.jpg);
+    background-image: url(../img/background.jpg);
     background-repeat: repeat-x;
     position: fixed;
     left: 0;
@@ -1134,7 +1134,6 @@ i.home-product-item__like-like {
 }
 .home-product-item__favourite i {
     font-size: 0.9rem;
-    margin: 4px 2px 3px 3px;
     color: var(--white-color);
 }
 .home-product-item__favourite span {
@@ -1143,12 +1142,16 @@ i.home-product-item__like-like {
 .home-product-item__Sale {
     position: absolute;
     top: 0;
+    display: flex;
     right: 0;
-    background-color: rgba(255, 216, 64, 0.95);
+    background-color: rgb(255 216 64 / 80%);
     width: 40px;
-    height: 36px;
+    height: 32px;
     text-align: center;
     border-top-right-radius: 2px;
+    align-content: flex-end;
+    flex-direction: column;
+    color: var(--white-color);
 }
 
 .home-product-item__Sale::after {
@@ -1158,7 +1161,7 @@ i.home-product-item__like-like {
     bottom: -5px;
     border-width: 0 20px 5px;
     border-style: solid;
-    border-color: transparent rgba(255, 216, 64, 0.95) transparent rgba(255, 216, 64, 0.95);
+    border-color: transparent rgba(255, 216, 64, 0.8) transparent rgba(255, 216, 64, 0.8);
 }
 
 .home-product-item__sale-persent {

@@ -2,7 +2,9 @@
     animation: fadeIn ease-in 0.2s;
 }
 .main-img {
-    padding-top: 120%;
+    width: 400px;
+    height: 400px;
+    background-size: contain;
     background-repeat: no-repeat;
     animation: fadeIn ease-in 0.2s;
 }
@@ -84,6 +86,10 @@
     display: flex;
     justify-content: center;
     font-weight: 500;
+}
+.product__quantity:nth-child(2){
+    border-left: none;
+    border-right: none;
 }
 .product-options {
     margin-top: 30px;

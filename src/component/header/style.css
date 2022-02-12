@@ -39,6 +39,10 @@
 .profile_select_item:hover {
     color: rgb(23, 139, 143)
 }
+.profile_select_yourOder {
+    text-decoration: none;
+    color: inherit;
+}
 
 @keyframes profile {
     from{
