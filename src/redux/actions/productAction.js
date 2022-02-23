@@ -5,6 +5,10 @@ export const getProduct = (data) => ({
   type: "GET_PRODUCT",
   payload: data,
 });
+export const getAProductAction = (data) => ({
+  type: "GET_APRODUCT",
+  payload: data,
+});
 export const ProductbyCategoryAction = (data) => ({
   type: "GET_PRODUCT_BY_CATEGORY",
   payload: data,
@@ -25,6 +29,18 @@ export const sortProductSmall = (data) => ({
   type: "SORT_PRODUCT_SMALL",
   payload: data,
 });
+export const GetBestSoldAction = (data) => ({
+  type: "GET_BEST_SOLD",
+  payload: data,
+});
+export const getFirstProductAction = (data) => ({
+  type: "GET_FIRTS_PRODUCT",
+  payload: data,
+});
+export const getSaleProductAction = (data) => ({
+  type: "GET_SALE_PRODUCT",
+  payload: data,
+});
 
 export const getProducts = () => (dispatch) => {
   axios
@@ -32,6 +48,11 @@ export const getProducts = () => (dispatch) => {
     .then((response) => {
       dispatch(getProduct(response.data));
     });
+};
+export const getAProduct = (data) => (dispatch) => {
+  axios.get(`${url}Products/GetById/${data}`, {}).then((response) => {
+    dispatch(getAProductAction(response.data));
+  });
 };
 export const ProductbyCategory = (data) => (dispatch) => {
   axios
@@ -49,4 +70,29 @@ export const searchProduct = (data) => (dispatch) => {
     .catch((error) => {
       console.log(error);
     });
+};
+
+export const GetBestSold = () => async (dispatch) => {
+  try {
+    const response = await axios.get(`${url}Products/GetBestSold`);
+    dispatch(GetBestSoldAction(response.data));
+  } catch (err) {
+    console.error(err);
+  }
+};
+export const getFirstProduct = () => async (dispatch) => {
+  try {
+    const response = await axios.get(`${url}Products/GetLast`);
+    dispatch(getFirstProductAction(response.data));
+  } catch (err) {
+    console.error(err);
+  }
+};
+export const getSaleProduct = () => async (dispatch) => {
+  try {
+    const response = await axios.get(`${url}Products/GetBestPromotion`);
+    dispatch(getFirstProductAction(response.data));
+  } catch (err) {
+    console.error(err);
+  }
 };

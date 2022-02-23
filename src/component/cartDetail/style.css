@@ -118,3 +118,7 @@
     text-decoration: none;
     color: #fff;
 }
+.pay-form {
+    margin: 0 auto;
+    width: 50%;
+}

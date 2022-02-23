@@ -37,7 +37,7 @@ function Pay_form() {
     });
   };
   return (
-    <form className="pay">
+    <form className="pay  pay-form ">
       <div className="pay_input">
         <label>Họ tên người nhận</label>
         <input

@@ -35,7 +35,9 @@ function CartItem({datalistCart}) {
                 <div className="header__cart-item-header">
                     <h5 className="header-list-item-name"></h5>
                     <div className="header__cart-item-header-wrap">
-                        <span className="header-list-item-price">{datalistCart.price.toLocaleString()} VND</span>
+                        <span className="header-list-item-price">
+                            {((datalistCart.price * (100 - parseInt(datalistCart.promotionPrice))) / 100 ).toLocaleString()} VND
+                            </span>
                         <span className="header-list-item-multifly">x</span>
                         <span className="header-list-item-qnt">{datalistCart.quantity}</span>
                     </div>

@@ -1,0 +1,8 @@
+.active {
+    background: #C1392B;
+    color:#fff
+}
+.productDescription{
+    margin-top:24px;
+    font-size: 2rem;
+}

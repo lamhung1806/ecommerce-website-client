@@ -32,25 +32,30 @@ function Item({ data }) {
         />
         <h4 className="home-product-item__name">{data.name}</h4>
         <div className="home-product-item__price">
-          {/* <div className="home-product-item__price-old">
-            { (data.price *(data.promotionPrice /100)) .toLocaleString()} VND
-          </div> */}
+          {
+            <div className="home-product-item__price-old">
+              {data.price.toLocaleString()} đ
+            </div>
+          }
           <div className="home-product-item__price-curen">
-            {data.price.toLocaleString()} VND
+            {(
+              (data.price * (100 - parseInt(data.promotionPrice))) /
+              100
+            ).toLocaleString()}
+            đ
           </div>
         </div>
         <div className="home-product-item__action">
           <span className="home-product-item__like home-product-item__like-liker">
             <i className="fas fa-heart home-product-item__like-like" />
-            <i className="far fa-heart home-product-item__like-no-like" />
           </span>
           <div className="home-product-item__rateting">
             <i onClick={handleAddCart} className="fas fa-cart-plus"></i>
             {/* <i className="home-product-item__star-gold fas fa-star" />
                     <i className="home-product-item__star-gold fas fa-star" />
                     <i className="home-product-item__star-gold fas fa-star" />
-                    <i className="home-product-item__star-gold fas fa-star" />
                     <i className="home-product-item__star-gold fas fa-star" /> */}
+            {/* <i className="home-product-item__star-gold fas fa-star" />  */}
           </div>
           {/* <span className="home-product-item__sold">100</span> */}
         </div>

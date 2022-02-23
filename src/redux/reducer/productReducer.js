@@ -2,6 +2,7 @@ import { sort, sortSmall } from "../../contain/contain";
 
 const productInitialState = {
   dataProduct: [],
+  aProduct: [],
 };
 const product = (state = productInitialState, action) => {
   switch (action.type) {
@@ -9,6 +10,12 @@ const product = (state = productInitialState, action) => {
       return {
         ...state,
         dataProduct: action.payload,
+      };
+    }
+    case "GET_APRODUCT": {
+      return {
+        ...state,
+        aProduct: action.payload,
       };
     }
     case "GET_PRODUCT_CATEGORY": {
@@ -33,6 +40,24 @@ const product = (state = productInitialState, action) => {
       return {
         ...state,
         dataProduct: sortSmall(action.payload).slice(0, action.payload.length),
+      };
+    }
+    case "GET_BEST_SOLD": {
+      return {
+        ...state,
+        dataProduct: action.payload,
+      };
+    }
+    case "GET_FIRTS_PRODUCT": {
+      return {
+        ...state,
+        dataProduct: action.payload,
+      };
+    }
+    case "GET_SALE_PRODUCT": {
+      return {
+        ...state,
+        dataProduct: action.payload,
       };
     }
     default:

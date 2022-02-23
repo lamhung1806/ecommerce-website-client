@@ -1,5 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/alt-text */
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { deleteCart, updateCart } from "../../redux/actions/cartAction";
 import { confirmAlert } from "react-confirm-alert";
@@ -50,7 +51,11 @@ function Cart_Description_item({ listCart }) {
       })
     );
   };
-
+  const price = useMemo(() => {
+    const newPrice =
+      (listCart.price * (100 - parseInt(listCart.promotionPrice))) / 100;
+    return newPrice;
+  }, []);
   return (
     <tr className="Cart_description_wrap">
       <td className="Cart_description_value Cart_description_value-img">
@@ -60,10 +65,7 @@ function Cart_Description_item({ listCart }) {
         />
         <div className="name_product">{listCart.name} </div>
       </td>
-      <td className="Cart_description_value">
-        {" "}
-        {listCart.price.toLocaleString()}
-      </td>
+      <td className="Cart_description_value">{price.toLocaleString()}đ</td>
       <td className="Cart_description_value">
         <div className="product">
           <div className="quantity ">
@@ -79,7 +81,7 @@ function Cart_Description_item({ listCart }) {
         </div>
       </td>
       <td className="Cart_description_value">
-        {(listCart.price * quantity).toLocaleString()} VND
+        {(price * quantity).toLocaleString()} VND
       </td>
       <td
         onClick={deleteProduct}

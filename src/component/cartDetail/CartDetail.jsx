@@ -23,7 +23,7 @@ useEffect(() =>{
     }
 const sum=()=>{
     const sum= (listCart ).reduce((initial,data)=>{
-        return initial + data.price * data.quantity
+        return initial + ((data.price * (100 - parseInt(data.promotionPrice))) /100) * data.quantity
     },0)
     return sum
 }
@@ -54,7 +54,8 @@ const sum=()=>{
                         )
                         }
 
-                    </tbody></table>
+                    </tbody>
+                </table>
                 <div className="pay">
                     <div className="row">
                         <div className="pay_sum">

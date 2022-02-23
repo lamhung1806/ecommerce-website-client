@@ -1,22 +1,35 @@
 /* eslint-disable jsx-a11y/alt-text */
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
-import { cancelOder, getDetailUserOder } from "../../redux/actions/userOder";
+import { url } from "../../contain/contain";
+import { notifyError, notifySuccess } from "../../contain/msg";
+import { getDetailUserOder, getUserOder } from "../../redux/actions/userOder";
 
 function Oderdetails(props) {
   const history = useHistory();
   const dispatch = useDispatch();
   const detailOderList = useSelector((state) => state.userOder.detailOderList);
   let { id } = useParams();
+
+  const cancelOder = (data) => async (dispatch) => {
+    try {
+      await axios.put(`${url}Orders/Reject/${data}`);
+      getUserOder();
+      notifySuccess();
+      history.goBack();
+    } catch (err) {
+      notifyError();
+    }
+  };
   useEffect(() => {
     dispatch(getDetailUserOder(id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
   const handleCancleOder = () => {
     dispatch(cancelOder(id));
-    history.goBack();
   };
 
   const totalPrice = () => {

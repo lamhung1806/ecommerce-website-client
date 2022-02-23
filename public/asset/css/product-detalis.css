@@ -49,10 +49,7 @@
     cursor: pointer;
     line-height: 40px;
 }
-.product-color:hover {
-    color: #d0011b;
-    border: 1px solid #d0011b;
-}
+
 
 .product-quantity {
     margin-top: 20px;

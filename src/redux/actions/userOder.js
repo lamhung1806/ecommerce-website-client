@@ -1,6 +1,5 @@
 import axios from "axios";
 import { url, user } from "../../contain/contain";
-import { notifyError, notifySuccess } from "../../contain/msg";
 
 export const getUserOderAction = (data) => ({
   type: "GET_USER_ODER",
@@ -29,15 +28,5 @@ export const getDetailUserOder = (data) => async (dispatch) => {
     dispatch(getDetailUserOderAction(response.data));
   } catch (err) {
     console.log(err);
-  }
-};
-
-export const cancelOder = (data) => async (dispatch) => {
-  try {
-    await axios.put(`${url}Orders/Reject/${data}`);
-    notifySuccess();
-    getUserOder();
-  } catch (err) {
-    notifyError();
   }
 };

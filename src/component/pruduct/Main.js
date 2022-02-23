@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Item from "./Item";
 import {
+  GetBestSold,
+  getFirstProduct,
   getProducts,
   ProductbyCategory,
   sortProduct,
   sortProductSmall,
+  getSaleProduct,
 } from "../../redux/actions/productAction";
 import { getCategory } from "../../redux/actions/categoryAction";
 import { useEffect } from "react";
@@ -14,6 +17,7 @@ function Main() {
   const dispatch = useDispatch();
   const dataProduct = useSelector((state) => state.product.dataProduct);
   const listCateGory = useSelector((state) => state.category.dataCategory);
+  const [sort, setSort] = useState("Sắp xếp theo");
   useEffect(() => {
     dispatch(getProducts());
     dispatch(getCategory());
@@ -23,13 +27,30 @@ function Main() {
     e.preventDefault();
     dispatch(ProductbyCategory(data));
   };
-  const handleSort = () => {
+  const handleSortLgToSm = (e) => {
     dispatch(sortProduct(dataProduct));
+    setSort(e.target.innerText);
   };
-  const handleSortSmall = () => {
+  const handleSortSmToLg = (e) => {
     dispatch(sortProductSmall(dataProduct));
+    setSort(e.target.innerText);
   };
-
+  const handleBestsold = () => {
+    dispatch(GetBestSold());
+    setSort("Sắp xếp theo");
+  };
+  const handleGetAllProfuct = () => {
+    dispatch(getProducts());
+    setSort("Sắp xếp theo");
+  };
+  const handleGetFirtsProduct = () => {
+    dispatch(getFirstProduct());
+    setSort("Sắp xếp theo");
+  };
+  const handleGetSaleProduct = () => {
+    dispatch(getSaleProduct());
+    setSort("Sắp xếp theo");
+  };
   return (
     <div className="main">
       <div className="grid wide ">
@@ -53,20 +74,38 @@ function Main() {
           </div>
           <div className="col l-10 m-12 c-12">
             <div className="home-filter hide-on-moble-tablet">
+              <button
+                onClick={handleGetAllProfuct}
+                className="home-fiter__btn btn  "
+              >
+                Tất cả sản phẩm
+              </button>
               <span className="home-fiter__lable">Sắp xếp theo</span>
-              <button className="home-fiter__btn btn  ">Phổ Biến</button>
-              <button className="home-fiter__btn btn ">Mới Nhất</button>
+              <button
+                onClick={handleGetSaleProduct}
+                className="home-fiter__btn btn  "
+              >
+                Giảm giá{" "}
+              </button>
+              <button
+                onClick={handleGetFirtsProduct}
+                className="home-fiter__btn btn "
+              >
+                Mới Nhất
+              </button>
 
-              <button className="home-fiter__btn btn">Bán Chạy</button>
+              <button onClick={handleBestsold} className="home-fiter__btn btn">
+                Bán Chạy
+              </button>
               <div className="select-input">
-                <span className="select-input__lable">Giá:</span>
+                <span className="select-input__lable">Giá: {sort}</span>
                 <i className="select-input-icon fas fa-sort-down " />
                 <ul className="select-input__list">
-                  <li onClick={handleSort} className="select-input__item">
-                    Giá: Từ cao đến thấp{" "}
+                  <li onClick={handleSortLgToSm} className="select-input__item">
+                    Từ cao đến thấp{" "}
                   </li>
-                  <li onClick={handleSortSmall} className="select-input__item">
-                    Giá: Từ thấp đến cao
+                  <li onClick={handleSortSmToLg} className="select-input__item">
+                    Từ thấp đến cao
                   </li>
                 </ul>
               </div>
