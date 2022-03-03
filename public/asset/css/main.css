@@ -426,6 +426,9 @@
 .icon-seach {
     float: right;
 }
+.profile-mobile {
+    display: none;
+}
 
 .header-cart {
     font-size: 2.4rem;

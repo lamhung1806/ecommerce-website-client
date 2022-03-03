@@ -34,11 +34,7 @@
     .header-cart-list::before {
         display: none;
     }
-    .app__container{
-        margin-top:calc(var(--header-height) + 46px) ;
-        padding-top: 0;
-    }
-    
+   
     .nav-mobile-category {
             display: block;
         }
@@ -59,15 +55,13 @@
     .header-seach-down {
         z-index: 1;
     }
-    .home-product-item__sale-lable {
-        position: relative;
-        top: -20%;
-
+  
+    .slider {
+        margin-top:calc( var(--header-height) + 56px ) !important
     }
-
-    
-    
-
+    .profile-mobile {
+        display:block;
+    }
 }
    
 
@@ -108,6 +102,10 @@
         margin-top: 0;
         animation: seach linear .2s;
         display: none;
+    }
+    .pay {
+       font-size:1.2rem !important;
+       margin-left: 4px;
     }
    
     @keyframes seach {

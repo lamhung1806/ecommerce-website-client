@@ -6,7 +6,6 @@
 .Cart_description {
     font-size: 16px;
     padding: 50px 0;
-    width: 100%;
 }
 
 .Cart_description_title {
@@ -27,7 +26,12 @@
     align-items: center;
 }
 .Cart_description_product_li-img {
-    width: 50px;
+    width: 120px;
+}
+.Cart_description_wap {
+    width: 100%;
+    overflow: auto;
+    margin-top: 100px;
 }
 
 .quantity {

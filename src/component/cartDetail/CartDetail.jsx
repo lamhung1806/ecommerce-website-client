@@ -32,8 +32,9 @@ const sum=()=>{
     return (
 
 
-        <div className="main-Cart_description">
-            <div className="grid wide">
+        <div className="main-Cart_description grid wide">
+           
+                <div className="Cart_description_wap">
                 <table className="Cart_description">
                     <tbody className="Cart_description-scoll">
                         <tr className="Cart_description_title ">
@@ -56,6 +57,8 @@ const sum=()=>{
 
                     </tbody>
                 </table>
+                </div>
+                
                 <div className="pay">
                     <div className="row">
                         <div className="pay_sum">
@@ -69,7 +72,7 @@ const sum=()=>{
                 </div>
                 {statusPayForm && <Pay_form/>}
 
-            </div>
+           
         </div>
     );
 }

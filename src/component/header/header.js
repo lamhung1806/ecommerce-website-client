@@ -230,6 +230,36 @@ function Header() {
             </div>
           </div>
           <Cart />
+          {dataUser.userName ? (
+            <div
+              htmlFor="check_login"
+              className="header__navbar-item profile-mobile"
+            >
+              {dataUser.userName}
+              <div className="profile_select">
+                <ul className="profile_select_list">
+                  <li className="profile_select_item">Tài khoản </li>
+                  <Link to="/youroder" className="profile_select_yourOder">
+                    <li className="profile_select_item">Đơn hàng của bạn </li>
+                  </Link>
+                  <li
+                    onClick={(e) => handleLogOut(e)}
+                    className="profile_select_item"
+                  >
+                    Đăng xuất
+                  </li>
+                </ul>
+              </div>
+            </div>
+          ) : (
+            <Link
+              to="/login"
+              htmlFor="check_login"
+              className="header__navbar-item Login profile-mobile"
+            >
+              Đăng nhập
+            </Link>
+          )}
         </div>
       </div>
       <ul className="header__sort-bar">

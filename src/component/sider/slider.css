@@ -1,5 +1,5 @@
 .slider {
-    margin-top: var(--header-height);
+    margin-top:var(--header-height)
 }
 .slick-slider {
     width: 100%;
@@ -7,7 +7,7 @@
 
 .slick-slide img {
     width: 100%;
-    min-height: 360px;
+    height: 100%;
 }
 
 .slick-prev:before,
